@@ -1,10 +1,9 @@
 import {
   AppBar,
-  Avatar,
-  Box,
   Container,
   Grid,
   Toolbar,
+  Typography,
   useScrollTrigger,
 } from "@mui/material";
 import { FC, MouseEvent, useState } from "react";
@@ -70,7 +69,11 @@ const Navbar: FC<NavbarProps> = (props) => {
                   alignItems: "center",
                 }}
               >
-                <Link onClick={handleClose} href={"/"} style={{ textDecoration: "none" }}>
+                <Link
+                  onClick={handleClose}
+                  href={"/"}
+                  style={{ textDecoration: "none" }}
+                >
                   <Icon />
                 </Link>
               </Grid>
@@ -89,6 +92,11 @@ const Navbar: FC<NavbarProps> = (props) => {
                   bgColor={"custom.navbarText"}
                   sx={{ zIndex: 10000 }}
                 />
+                <Typography
+                  sx={{ ml: 1, textTransform: "uppercase", fontSize: "0.9rem" }}
+                >
+                  {menuOpen ? "Close" : "Menu"}
+                </Typography>
               </Grid>
             </Grid>
           </Container>

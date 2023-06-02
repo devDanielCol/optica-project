@@ -1,14 +1,4 @@
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  Switch,
-  SxProps,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, FormControlLabel, Switch, SxProps, styled } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { ISelector } from "../../../types/selectors";
 import { changeTheme } from "../../../redux/reducers/theme";
@@ -76,13 +66,11 @@ const ThemeButton = ({ sx }: IThemeButtonProps) => {
   };
 
   return (
-    <Box display="flex" flexDirection="row" p={2} alignItems="center">
+    <Box display="flex" flexDirection="row" alignItems="center">
       <FormControlLabel
         checked={mode === "dark"}
-        onChange={() => {
-          dispatch(changeTheme(mode === "dark" ? "light" : "dark"));
-        }}
-        control={<MaterialUISwitch sx={{ m: 1 }} />}
+        onChange={handleClick}
+        control={<MaterialUISwitch />}
         label=""
       />
     </Box>

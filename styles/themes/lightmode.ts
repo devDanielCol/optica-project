@@ -38,7 +38,8 @@ const lightThemeOption = {
       navbar: "#016a6de5",
       navbarText: "#fff",
       footer: "#043e52",
-      footerText:"#fff"
+      footerText: "#fff",
+      menuText: "#016a6de5",
     },
   },
   typography: {
