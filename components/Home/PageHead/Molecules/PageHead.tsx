@@ -1,4 +1,4 @@
-import { Pagination, Navigation } from "swiper";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import "swiper/css";
@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { FC, useState } from "react";
-import useTheme from "../../../../util/hooks/useTheme";
 import Icon from "../Atoms/Icon";
 
 interface ButtonChangeProps {
@@ -52,7 +51,6 @@ const ButtonChange: FC<ButtonChangeProps> = ({
 };
 
 const PageHead = () => {
-  const theme = useTheme();
   const [active, setActive] = useState<number>(0);
 
   return (

@@ -1,20 +1,7 @@
 import * as React from "react";
-import {
-  Box,
-  ButtonGroup,
-  Container,
-  Divider,
-  Grid,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import { SxProps } from "@mui/material/styles";
 import MUILink from "@mui/material/Link";
-import Image from "next/image";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import Link from "next/link";
 import useTheme from "../../util/hooks/useTheme";
 
 interface IProps {
@@ -51,7 +38,9 @@ const Footer = () => {
       }}
       component="footer"
     >
-      <Container sx={{ minHeight: "10rem", p: 3, width: "100%" }}></Container>
+      <Container sx={{ minHeight: "10rem", p: 3, width: "100%" }}>
+        <Copyright />
+      </Container>
     </Box>
   );
 };

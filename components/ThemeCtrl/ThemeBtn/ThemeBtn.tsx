@@ -66,7 +66,7 @@ const ThemeButton = ({ sx }: IThemeButtonProps) => {
   };
 
   return (
-    <Box display="flex" flexDirection="row" alignItems="center">
+    <Box display="flex" flexDirection="row" alignItems="center" sx={sx}>
       <FormControlLabel
         checked={mode === "dark"}
         onChange={handleClick}

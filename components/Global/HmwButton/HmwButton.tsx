@@ -17,7 +17,7 @@ const HmwButton = ({ onClick, open, sx, bgColor }: IHmwButtonProps) => {
         flexDirection: "column",
         px: 0,
         py: 0,
-        p:1,
+        p: 1,
         minWidth: "fit-content",
         ...sx,
       }}
