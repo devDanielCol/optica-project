@@ -1,6 +1,6 @@
 import Article from "../components/AboutUs/Article/Article";
 import Presentation from "../components/AboutUs/Presentation/Presentation";
-import ContentSimple from "../components/Layout/Content/Simple";
+import Content from "../components/Layout/Content/General";
 
 export default function Home() {
   const description = `somos una empresa comprometida con la satisfacción de nuestros
@@ -9,12 +9,12 @@ export default function Home() {
   general.`;
 
   return (
-    <ContentSimple
+    <Content
       title="Sobre nostros | Peniel construcciones"
       description={description}
     >
       <Presentation />
       <Article />
-    </ContentSimple>
+    </Content>
   );
 }
