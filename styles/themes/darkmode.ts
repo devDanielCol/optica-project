@@ -36,8 +36,8 @@ const darkThemeOption = {
     custom: {
       navbar: "rgba(8, 25, 48, 0.9)",
       navbarText: "#fff",
-      footer: "rgba(8, 25, 48, 1)",
-      footerText: "#ffa45d",
+      footer: "rgb(15, 46, 87)",
+      footerText: "#fff",
       menuText: "#5f83bd",
     },
   },

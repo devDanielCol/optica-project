@@ -1,10 +1,10 @@
 import { Box, Container, Typography } from "@mui/material";
-import ContentSimple from "../components/Layout/Content/Simple";
 import Link from "next/link";
+import Content from "../components/Layout/Content/General";
 
 const NotFound404 = () => {
   return (
-    <ContentSimple title="404: NotFoundPage">
+    <Content title="404: NotFoundPage" threshold={0}>
       <Box
         sx={{
           backgroundImage:
@@ -44,7 +44,7 @@ const NotFound404 = () => {
           </Box>
         </Container>
       </Box>
-    </ContentSimple>
+    </Content>
   );
 };
 

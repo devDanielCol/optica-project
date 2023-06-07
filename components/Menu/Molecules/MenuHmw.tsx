@@ -1,4 +1,4 @@
-import { Box, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, Typography } from "@mui/material";
 import useTheme from "../../../util/hooks/useTheme";
 import ThemeButton from "../../ThemeCtrl/ThemeBtn/ThemeBtn";
 import Link from "next/link";
@@ -18,7 +18,7 @@ const MenuHmw = ({ open, onCloseFc }: IMenuHmwProps) => {
       open={open}
       disablePortal
       elevation={3}
-      transitionDuration={1100}
+      transitionDuration={1000}
       onClose={onCloseFc}
     >
       <Box
@@ -26,7 +26,7 @@ const MenuHmw = ({ open, onCloseFc }: IMenuHmwProps) => {
           width: {
             xs: "100vw",
             sm: "60vw",
-            md: "50vw",
+            md: "45vw",
           },
           height: "100%",
           p: 4,
@@ -71,95 +71,75 @@ const MenuHmw = ({ open, onCloseFc }: IMenuHmwProps) => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            pl: 3,
             mt: 8,
+            pl: { xs: 1, md: 4 },
           }}
         >
-          <Box sx={{ width: "100%", py: 1 }}>
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "1.7rem",
-                  md: "2.2rem",
-                },
-                py: 1,
-                fontWeight: "300",
-              }}
-            >
-              Brigadas Empresariales
-            </Typography>
-          </Box>
-          <Box sx={{ width: "100%" }}>
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "1.7rem",
-                  md: "2.2rem",
-                },
-                py: 1,
-                fontWeight: "300",
-              }}
-            >
-              Salud Visual
-            </Typography>
-          </Box>{" "}
-          <Box sx={{ width: "100%" }}>
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "1.7rem",
-                  md: "2.2rem",
-                },
-                py: 1,
-                fontWeight: "300",
-              }}
-            >
-              El cuidado de tus ojos
-            </Typography>
-          </Box>
-          <Box sx={{ width: "100%" }}>
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "1.7rem",
-                  md: "2.2rem",
-                },
-                py: 1,
-                fontWeight: "300",
-              }}
-            >
-              Blog
-            </Typography>
-          </Box>
+          {[
+            "Brigadas Empresariales",
+            "Salud Visual",
+            "Cudado de tus Ojos",
+            "Blog",
+          ].map((item, key) => (
+            <Box key={key} sx={{ width: "100%", py: 1 }}>
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "1.2rem",
+                    md: "1.5rem",
+                  },
+                  textTransform: "uppercase",
+                  transition: "all 0.2s linear",
+                  pl: 0,
+                  "&:hover": {
+                    pl: 1,
+                    transition: "all 0.2s linear",
+                    textDecoration: "underline",
+                  },
+                  py: 1,
+                  fontWeight: "300",
+                  "&>a": {
+                    textDecoration: "none",
+                    color: "inherit",
+                    "&:hover": {
+                      textDecoration: "underline",
+                    },
+                    "&:visited": {
+                      color: "inherit",
+                    },
+                  },
+                }}
+              >
+                <Link href={"/#"} onClick={onCloseFc}>
+                  {item}
+                </Link>
+              </Typography>
+            </Box>
+          ))}
         </Box>
         <Box
           sx={{
             width: "100%",
             height: "100%",
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "center",
             alignItems: "flex-end",
           }}
         >
-          <Typography
+          <Button
             sx={{
-              fontSize: {
-                xs: "0.7rem",
-                md: "0.8rem",
-              },
-              opacity: "0.7",
-              lineHeight: 1,
+              width: { xs: "100%", md: "40%" },
+              py: 1.2,
+              fontWeight: "300",
+              textTransform: "uppercase",
+              color: theme.palette.custom.menuText,
+              backgroundColor: "transparent",
+              boxShadow: "none",
+              border: theme.palette.custom.menuText + " solid 1px",
             }}
           >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
-            distinctio alias sed exercitationem incidunt hic eos error eum ipsum
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-            eligendi suscipit temporibus consequuntur quod molestiae nisi quidem
-            eveniet sunt. Cumque, itaque? Minima, perferendis. Magnam assumenda
-            reprehenderit voluptatibus quis sed esse. maxime, atque laborum ab
-            repudiandae dicta a aut dolorum vitae enim?{" "}
-            <Link href={""}>Leer más</Link>
-          </Typography>
+            Buy Now
+          </Button>
         </Box>
       </Box>
     </Drawer>

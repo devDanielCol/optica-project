@@ -15,10 +15,10 @@ import Icon from "../../Home/PageHead/Atoms/Icon";
 
 interface NavbarProps {
   window?: () => Window;
+  threshold?: number;
 }
 
-const Navbar: FC<NavbarProps> = (props) => {
-  const { window } = props;
+const Navbar: FC<NavbarProps> = ({ window, threshold }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
@@ -33,8 +33,8 @@ const Navbar: FC<NavbarProps> = (props) => {
   };
 
   const trigger = useScrollTrigger({
-    disableHysteresis: false,
-    threshold: 120,
+    disableHysteresis: true,
+    threshold: threshold ? threshold : 120,
     target: window ? window() : undefined,
   });
 
@@ -50,7 +50,6 @@ const Navbar: FC<NavbarProps> = (props) => {
           opacity: trigger ? 100 : 0,
           borderBottomColor: trigger ? "#4e317e50" : "transparent",
           py: 0,
-          px: { xs: 0, md: 5 },
           transform: trigger ? "translateY(0%)" : "translateY(-100%)",
           backdropFilter: "blur(7px)",
           color: "custom.navbarText",
@@ -58,7 +57,12 @@ const Navbar: FC<NavbarProps> = (props) => {
         }}
       >
         <Toolbar>
-          <Container maxWidth="lg">
+          <Container
+            sx={{
+              transition: "all 1s linear ",
+              px: { xs: 0, md: 0 },
+            }}
+          >
             <Grid container sx={{ py: trigger ? 0.5 : 2 }}>
               <Grid
                 item
@@ -93,7 +97,12 @@ const Navbar: FC<NavbarProps> = (props) => {
                   sx={{ zIndex: 10000 }}
                 />
                 <Typography
-                  sx={{ ml: 1, textTransform: "uppercase", fontSize: "0.9rem" }}
+                  sx={{
+                    ml: 1,
+                    textTransform: "uppercase",
+                    fontSize: "0.9rem",
+                    display: { xs: "none", md: "block" },
+                  }}
                 >
                   {menuOpen ? "Close" : "Menu"}
                 </Typography>

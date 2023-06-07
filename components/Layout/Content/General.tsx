@@ -1,25 +1,30 @@
 import { IconButton } from "@mui/material";
 import { FC, ReactNode } from "react";
 import BodyDocument from "../Body";
-import FooterDocument from "../Footer";
+import FooterDocument from "../Footer/Molecules/Footer";
 import HeadDocument from "../Head";
 import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Navbar from "../../Navbar/Molecules/Navbar";
 
 interface IContentProps {
   children?: ReactNode;
   title: string;
   description?: string;
+  threshold?: number;
 }
 
-const Content: FC<IContentProps> = ({ children, title, description }) => {
+const Content: FC<IContentProps> = ({
+  children,
+  title,
+  description,
+  threshold,
+}) => {
   return (
     <>
       <HeadDocument title={title} description={description} />
       <BodyDocument>
         <>
-          <Navbar />
+          <Navbar threshold={threshold} />
           <>{children}</>
           <FooterDocument />
 
@@ -30,12 +35,13 @@ const Content: FC<IContentProps> = ({ children, title, description }) => {
               bottom: "20px",
               right: "20px",
               zIndex: 1000,
-              backgroundColor: "#00000020",
+              backgroundColor: "custom.navbar",
+              color: "custom.navbarText",
             }}
           >
             <KeyboardDoubleArrowUpRoundedIcon />
           </IconButton>
-          <IconButton
+          {/* <IconButton
             href="#"
             sx={{
               position: "fixed",
@@ -50,7 +56,7 @@ const Content: FC<IContentProps> = ({ children, title, description }) => {
             }}
           >
             <WhatsAppIcon sx={{ width: "50px", height: "50px" }} />
-          </IconButton>
+          </IconButton> */}
         </>
       </BodyDocument>
     </>

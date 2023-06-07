@@ -31,17 +31,18 @@ const ButtonChange: FC<ButtonChangeProps> = ({
   return (
     <Button
       sx={{
-        fontSize: { xs: "0.8rem", md: "1.2rem" },
-        textTransform: "unset",
-        mx: { xs: 0, md: 2 },
+        fontSize: { xs: "0.8rem", md: "0.9rem" },
+        textTransform: "uppercase",
+        mx: { xs: 0, lg: 2 },
         color: "white",
-        height: { xs: "50px", md: "77px" },
+        height: { xs: "40px", lg: "77px" },
         backgroundColor: selected === to ? "#e16a3d" : "",
         "&:hover": {
           backgroundColor: selected === to ? "#e16a3d" : "",
         },
         borderRadius: "0px",
         width: "100%",
+        fontWeight: 300,
       }}
       onMouseMove={onSelected}
     >
@@ -57,10 +58,10 @@ const PageHead = () => {
     <Box sx={{ color: "white" }}>
       <Swiper
         pagination={{
-          type: "custom",
+          type: "bullets",
         }}
         modules={[Pagination]}
-        speed={1100}
+        speed={1000}
         onSlideChange={(e) => {
           setActive(e.activeIndex);
         }}
@@ -76,7 +77,7 @@ const PageHead = () => {
             zIndex: "1000",
             p: 0,
             width: "100%",
-            backgroundColor: "#00000078",
+            backgroundImage: "radial-gradient( #ffffff33 10%, transparent)",
             backdropFilter: "blur(7px)",
             m: 0,
           }}
@@ -96,8 +97,7 @@ const PageHead = () => {
                   sm: "column",
                   lg: "row",
                 },
-                pl: 0,
-                pr: 0,
+                px: 0,
                 m: 0,
               }}
             >
@@ -109,6 +109,7 @@ const PageHead = () => {
                   display: "flex",
                   justifyContent: { xs: "center", lg: "flex-start" },
                   p: 0,
+                  py: { xs: 1, lg: 0 },
                 }}
               >
                 <Icon />
@@ -145,7 +146,7 @@ const PageHead = () => {
           >
             <Box
               sx={{
-                minHeight: "26.25rem",
+                height: "90vh",
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
@@ -169,13 +170,14 @@ const PageHead = () => {
                   md: "70%",
                 },
                 height: "100%",
+                pt: 10,
               }}
             >
               <Typography
                 sx={{
-                  fontSize: { xs: "1.5rem", md: "3rem" },
-                  letterSpacing: "10px",
-                  fontWeight: 700,
+                  fontSize: { xs: "1.5rem", md: "5rem" },
+                  letterSpacing: "8px",
+                  fontWeight: 300,
                   lineHeight: "1",
                   textAlign: "center",
                   textTransform: "uppercase",
@@ -189,75 +191,7 @@ const PageHead = () => {
                     xs: "0.8rem",
                     md: "1.5rem",
                   },
-                  fontWeight: 500,
-                  textAlign: "center",
-                  mt: 3,
-                }}
-              >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repellat illo nam aperiam quidem amet earum reiciendis? Soluta
-                magnam corrupti quae at. Laboriosam minima natus eligendi
-                architecto dolorem tempore facilis officiis.
-              </Typography>
-            </Box>
-          </Box>
-        </SwiperSlide>
-        <SwiperSlide style={{ height: "inherit" }}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "relative",
-            }}
-          >
-            <Box
-              sx={{
-                minHeight: "26.25rem",
-                width: "100%",
-                objectPosition: "top",
-                objectFit: "cover",
-              }}
-              autoPlay
-              preload=""
-              loop
-              src="video/day.mp4"
-              component={"video"}
-            ></Box>
-            <Box
-              sx={{
-                position: "absolute",
-                display: "flex",
-                top: 0,
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                maxWidth: {
-                  xs: "90%",
-                  md: "70%",
-                },
-                height: "100%",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: { xs: "1.5rem", md: "3rem" },
-                  letterSpacing: "10px",
-                  fontWeight: 700,
-                  lineHeight: "1",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                }}
-              >
-                Salud Visual
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: {
-                    xs: "0.8rem",
-                    md: "1.5rem",
-                  },
-                  fontWeight: 500,
+                  fontWeight: 200,
                   textAlign: "center",
                   mt: 3,
                 }}
@@ -281,16 +215,15 @@ const PageHead = () => {
           >
             <Box
               sx={{
-                minHeight: "26.25rem",
+                height: "90vh",
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
+                backgroundImage:
+                  "url(https://www.transitions.com/assets/images/home/carousel/A%20copy.webp)",
+                backgroundPositionY: "center",
+                backgroundSize: "cover",
               }}
-              autoPlay
-              preload=""
-              loop
-              src="video/day.mp4"
-              component={"video"}
             ></Box>
             <Box
               sx={{
@@ -298,43 +231,132 @@ const PageHead = () => {
                 display: "flex",
                 top: 0,
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                maxWidth: {
-                  xs: "90%",
-                  md: "70%",
-                },
+                justifyContent: "flex-end",
+                alignItems: "flex-start",
                 height: "100%",
+                pl: { xs: 0, md: 5 },
+                pb: "10rem !important",
               }}
             >
-              <Typography
+              <Box
                 sx={{
-                  fontSize: { xs: "1.5rem", md: "3rem" },
-                  letterSpacing: "10px",
-                  fontWeight: 700,
-                  lineHeight: "1",
-                  textAlign: "center",
-                  textTransform: "uppercase",
+                  maxWidth: { xs: "100%", md: "50%" },
+                  paddingBottom: "70px",
                 }}
               >
-                Salud Visual
-              </Typography>
-              <Typography
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1.5rem", md: "5rem" },
+                    letterSpacing: "8px",
+                    fontWeight: 300,
+                    lineHeight: "1",
+                    textAlign: {
+                      xs: "center",
+                      md: "left",
+                    },
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Salud Visual
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: {
+                      xs: "0.8rem",
+                      md: "1.2rem",
+                    },
+                    fontWeight: 200,
+                    textAlign: {
+                      xs: "center",
+                      md: "left",
+                    },
+                    mt: 3,
+                  }}
+                >
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Repellat illo nam aperiam quidem amet earum reiciendis? Soluta
+                  magnam corrupti quae at. Laboriosam minima natus eligendi
+                  architecto dolorem tempore facilis officiis.
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            <Box
+              sx={{
+                height: "90vh",
+                width: "100%",
+                objectPosition: "top",
+                objectFit: "cover",
+                backgroundImage:
+                  "url(https://www.transitions.com/assets/images/home/carousel/A%20copy.webp)",
+                backgroundPositionY: "center",
+                backgroundSize: "cover",
+              }}
+            ></Box>
+            <Box
+              sx={{
+                position: "absolute",
+                display: "flex",
+                top: 0,
+                flexDirection: "column",
+                justifyContent: "flex-end",
+                alignItems: "flex-start",
+                height: "100%",
+                pl: { xs: 0, md: 5 },
+                pb: "10rem !important",
+              }}
+            >
+              <Box
                 sx={{
-                  fontSize: {
-                    xs: "0.8rem",
-                    md: "1.5rem",
-                  },
-                  fontWeight: 500,
-                  textAlign: "center",
-                  mt: 3,
+                  maxWidth: { xs: "100%", md: "50%" },
+                  paddingBottom: "70px",
                 }}
               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repellat illo nam aperiam quidem amet earum reiciendis? Soluta
-                magnam corrupti quae at. Laboriosam minima natus eligendi
-                architecto dolorem tempore facilis officiis.
-              </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1.5rem", md: "5rem" },
+                    letterSpacing: "8px",
+                    fontWeight: 300,
+                    lineHeight: "1",
+                    textAlign: {
+                      xs: "center",
+                      md: "left",
+                    },
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Salud Visual
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: {
+                      xs: "0.8rem",
+                      md: "1.2rem",
+                    },
+                    fontWeight: 200,
+                    textAlign: {
+                      xs: "center",
+                      md: "left",
+                    },
+                    mt: 3,
+                  }}
+                >
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Repellat illo nam aperiam quidem amet earum reiciendis? Soluta
+                  magnam corrupti quae at. Laboriosam minima natus eligendi
+                  architecto dolorem tempore facilis officiis.
+                </Typography>
+              </Box>
             </Box>
           </Box>
         </SwiperSlide>
