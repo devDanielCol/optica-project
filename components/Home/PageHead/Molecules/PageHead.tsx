@@ -190,7 +190,7 @@ const PageHead = () => {
               muted
               poster="images/brigadas.jpg"
               loop
-              controls={false}
+              playsInline
               component={"video"}
             >
               <p>load failed</p>
