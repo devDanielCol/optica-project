@@ -183,12 +183,14 @@ const PageHead = () => {
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
+                zIndex: -1,
               }}
               autoPlay
               preload=""
               muted
               poster="images/brigadas.jpg"
               loop
+              controls={false}
               component={"video"}
             >
               <p>load failed</p>
