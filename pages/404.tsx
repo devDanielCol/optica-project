@@ -4,7 +4,7 @@ import Content from "../components/Layout/Content/General";
 
 const NotFound404 = () => {
   return (
-    <Content title="404: NotFoundPage" threshold={0}>
+    <Content title="404: NotFoundPage" threshold={0} description="">
       <Box
         sx={{
           backgroundImage:

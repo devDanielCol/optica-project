@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
 interface IBodyDocumentProps {
-  children: ReactElement;
+  children: ReactNode;
 }
 
 const BodyDocument = ({ children }: IBodyDocumentProps) => {
