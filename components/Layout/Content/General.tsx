@@ -5,11 +5,12 @@ import FooterDocument from "../Footer/Molecules/Footer";
 import HeadDocument from "../Head";
 import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
 import Navbar from "../../Navbar/Molecules/Navbar";
+import isNavigator from "../../../util/helpers/isNavigator";
 
 interface IContentProps {
   children?: ReactNode;
   title: string;
-  description?: string;
+  description: string;
   threshold?: number;
 }
 
@@ -19,45 +20,27 @@ const Content: FC<IContentProps> = ({
   description,
   threshold,
 }) => {
+  const urlSite = isNavigator() ? location.href : "";
   return (
     <>
-      <HeadDocument title={title} description={description} />
+      <HeadDocument title={title} description={description} url={urlSite} />
       <BodyDocument>
-        <>
-          <Navbar threshold={threshold} />
-          <>{children}</>
-          <FooterDocument />
-
-          <IconButton
-            href="/#"
-            sx={{
-              position: "fixed",
-              bottom: "20px",
-              right: "20px",
-              zIndex: 1000,
-              backgroundColor: "custom.navbar",
-              color: "custom.navbarText",
-            }}
-          >
-            <KeyboardDoubleArrowUpRoundedIcon />
-          </IconButton>
-          {/* <IconButton
-            href="#"
-            sx={{
-              position: "fixed",
-              bottom: "80px",
-              right: "20px",
-              zIndex: 1000,
-              backgroundColor: "#24d366",
-              "&:hover": {
-                backgroundColor: "#24d366",
-              },
-              color: "white",
-            }}
-          >
-            <WhatsAppIcon sx={{ width: "50px", height: "50px" }} />
-          </IconButton> */}
-        </>
+        <Navbar threshold={threshold} />
+        <>{children}</>
+        <FooterDocument />
+        <IconButton
+          href="/#"
+          sx={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 1000,
+            backgroundColor: "custom.navbar",
+            color: "custom.navbarText",
+          }}
+        >
+          <KeyboardDoubleArrowUpRoundedIcon />
+        </IconButton>
       </BodyDocument>
     </>
   );

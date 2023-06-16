@@ -1,9 +1,9 @@
 import { Container, Box, Typography } from "@mui/material";
-import ContentSimple from "../../components/Layout/Content/Simple";
+import Content from "../../components/Layout/Content/General";
 
 export default function Home() {
   return (
-    <ContentSimple title="Terminos y condiciones">
+    <Content title="Terminos y condiciones" description="hlla">
       <Container maxWidth={"md"}>
         <Box sx={{ minHeight: "100vh" }}>
           <Box component={"article"}>
@@ -86,6 +86,6 @@ export default function Home() {
           </Box>
         </Box>
       </Container>
-    </ContentSimple>
+    </Content>
   );
 }

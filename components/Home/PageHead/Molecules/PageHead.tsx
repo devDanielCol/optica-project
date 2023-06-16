@@ -4,9 +4,18 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import { FC, useState } from "react";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import { FC, useRef, useState } from "react";
 import Icon from "../Atoms/Icon";
+import PauseCircleIcon from "@mui/icons-material/PauseCircle";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 
 interface ButtonChangeProps {
   to: number;
@@ -53,6 +62,27 @@ const ButtonChange: FC<ButtonChangeProps> = ({
 
 const PageHead = () => {
   const [active, setActive] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+
+  const videoRef = useRef<HTMLVideoElement>();
+
+  const pauseAndPlay = () => {
+    if (videoRef.current?.paused) {
+      console.log("played");
+      setIsPaused(!isPaused);
+      videoRef.current
+        .play()
+        .then(() => {
+          console.warn("video played");
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      setIsPaused(!isPaused);
+      videoRef.current?.pause();
+    }
+  };
 
   return (
     <Box sx={{ color: "white" }}>
@@ -65,6 +95,8 @@ const PageHead = () => {
         onSlideChange={(e) => {
           setActive(e.activeIndex);
         }}
+        draggable={false}
+        noSwiping
       >
         <Box
           sx={{
@@ -145,65 +177,116 @@ const PageHead = () => {
             }}
           >
             <Box
+              ref={videoRef}
               sx={{
-                height: "90vh",
+                height: "98vh",
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
               }}
               autoPlay
               preload=""
+              muted
+              poster="images/brigadas.jpg"
               loop
-              src="https://www.transitions.com/assets/videos/15s_LOOP_VI_HORIZ_200310_422HQ.mp4"
               component={"video"}
-            ></Box>
+            >
+              <p>load failed</p>
+              <source src="video/optica.mp4" type="video/mp4" />
+              <source src="video/optica.webm" type="video/webm" />
+            </Box>
             <Box
               sx={{
+                width: "100%",
                 position: "absolute",
                 display: "flex",
                 top: 0,
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                maxWidth: {
-                  xs: "90%",
-                  md: "70%",
-                },
-                height: "100%",
-                pt: 10,
+                justifyContent: "flex-start",
+                alignItems: "flex-end",
+                height: "90vh",
+                // bgcolor: "blue",
               }}
             >
-              <Typography
+              <Box
                 sx={{
-                  fontSize: { xs: "1.5rem", md: "5rem" },
-                  letterSpacing: "8px",
-                  fontWeight: 300,
-                  lineHeight: "1",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                }}
-              >
-                Salud Visual
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: {
-                    xs: "0.8rem",
-                    md: "1.5rem",
+                  flexDirection: "column",
+                  maxWidth: "800px",
+                  p: {
+                    xs: 1,
+                    sm: 5,
+                    lg: 3,
                   },
-                  fontWeight: 200,
-                  textAlign: "center",
-                  mt: 3,
+                  pb: {
+                    xs: 5,
+                    sm: 7,
+                    lg: 10,
+                  },
+                  // bgcolor: "red",
                 }}
               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repellat illo nam aperiam quidem amet earum reiciendis? Soluta
-                magnam corrupti quae at. Laboriosam minima natus eligendi
-                architecto dolorem tempore facilis officiis.
-              </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { xs: "3rem", sm: "5rem", md: "4rem" },
+                    letterSpacing: "0px",
+                    fontWeight: 300,
+                    lineHeight: "1",
+                    textAlign: "left",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Salud Visual
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { xs: "1.5rem", sm: "3rem", md: "3rem" },
+                    letterSpacing: "0px",
+                    fontWeight: 300,
+                    lineHeight: "1",
+                    textAlign: "left",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Transforma tu perspectiva
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: {
+                      xs: "0.8rem",
+                      sm: "1.5rem",
+                      md: "1.5rem",
+                    },
+                    fontWeight: 200,
+                    lineHeight: "1",
+                    textAlign: "left",
+                    mt: 3,
+                  }}
+                >
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Repellat illo nam aperiam quidem amet earum reiciendis
+                </Typography>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 20,
+                right: 20,
+              }}
+            >
+              <IconButton
+                sx={{ color: "custom.navbarText" }}
+                onClick={pauseAndPlay}
+              >
+                {!isPaused ? (
+                  <PauseCircleIcon sx={{ fontSize: "3rem" }} />
+                ) : (
+                  <PlayCircleIcon sx={{ fontSize: "3rem" }} />
+                )}
+              </IconButton>
             </Box>
           </Box>
         </SwiperSlide>
+
         <SwiperSlide>
           <Box
             sx={{
@@ -215,7 +298,7 @@ const PageHead = () => {
           >
             <Box
               sx={{
-                height: "90vh",
+                height: "98vh",
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
@@ -227,33 +310,40 @@ const PageHead = () => {
             ></Box>
             <Box
               sx={{
+                width: "100%",
                 position: "absolute",
                 display: "flex",
                 top: 0,
-                flexDirection: "column",
-                justifyContent: "flex-end",
-                alignItems: "flex-start",
-                height: "100%",
-                pl: { xs: 0, md: 5 },
-                pb: "10rem !important",
+                justifyContent: "flex-start",
+                alignItems: "flex-end",
+                height: "90vh",
+                // bgcolor: "blue",
               }}
             >
               <Box
                 sx={{
-                  maxWidth: { xs: "100%", md: "50%" },
-                  paddingBottom: "70px",
+                  flexDirection: "column",
+                  maxWidth: "800px",
+                  p: {
+                    xs: 1,
+                    sm: 5,
+                    lg: 3,
+                  },
+                  pb: {
+                    xs: 5,
+                    sm: 7,
+                    lg: 10,
+                  },
+                  // bgcolor: "red",
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: { xs: "1.5rem", md: "5rem" },
-                    letterSpacing: "8px",
+                    fontSize: { xs: "3rem", sm: "5rem", md: "4rem" },
+                    letterSpacing: "0px",
                     fontWeight: 300,
                     lineHeight: "1",
-                    textAlign: {
-                      xs: "center",
-                      md: "left",
-                    },
+                    textAlign: "left",
                     textTransform: "uppercase",
                   }}
                 >
@@ -261,22 +351,31 @@ const PageHead = () => {
                 </Typography>
                 <Typography
                   sx={{
+                    fontSize: { xs: "1.5rem", sm: "3rem", md: "3rem" },
+                    letterSpacing: "0px",
+                    fontWeight: 300,
+                    lineHeight: "1",
+                    textAlign: "left",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Transforma tu perspectiva
+                </Typography>
+                <Typography
+                  sx={{
                     fontSize: {
                       xs: "0.8rem",
-                      md: "1.2rem",
+                      sm: "1.5rem",
+                      md: "1.5rem",
                     },
                     fontWeight: 200,
-                    textAlign: {
-                      xs: "center",
-                      md: "left",
-                    },
+                    lineHeight: "1",
+                    textAlign: "left",
                     mt: 3,
                   }}
                 >
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Repellat illo nam aperiam quidem amet earum reiciendis? Soluta
-                  magnam corrupti quae at. Laboriosam minima natus eligendi
-                  architecto dolorem tempore facilis officiis.
+                  Repellat illo nam aperiam quidem amet earum reiciendis
                 </Typography>
               </Box>
             </Box>
@@ -293,7 +392,7 @@ const PageHead = () => {
           >
             <Box
               sx={{
-                height: "90vh",
+                height: "98vh",
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
@@ -305,33 +404,40 @@ const PageHead = () => {
             ></Box>
             <Box
               sx={{
+                width: "100%",
                 position: "absolute",
                 display: "flex",
                 top: 0,
-                flexDirection: "column",
-                justifyContent: "flex-end",
-                alignItems: "flex-start",
-                height: "100%",
-                pl: { xs: 0, md: 5 },
-                pb: "10rem !important",
+                justifyContent: "flex-start",
+                alignItems: "flex-end",
+                height: "90vh",
+                // bgcolor: "blue",
               }}
             >
               <Box
                 sx={{
-                  maxWidth: { xs: "100%", md: "50%" },
-                  paddingBottom: "70px",
+                  flexDirection: "column",
+                  maxWidth: "800px",
+                  p: {
+                    xs: 1,
+                    sm: 5,
+                    lg: 3,
+                  },
+                  pb: {
+                    xs: 5,
+                    sm: 7,
+                    lg: 10,
+                  },
+                  // bgcolor: "red",
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: { xs: "1.5rem", md: "5rem" },
-                    letterSpacing: "8px",
+                    fontSize: { xs: "3rem", sm: "5rem", md: "4rem" },
+                    letterSpacing: "0px",
                     fontWeight: 300,
                     lineHeight: "1",
-                    textAlign: {
-                      xs: "center",
-                      md: "left",
-                    },
+                    textAlign: "left",
                     textTransform: "uppercase",
                   }}
                 >
@@ -339,22 +445,31 @@ const PageHead = () => {
                 </Typography>
                 <Typography
                   sx={{
+                    fontSize: { xs: "1.5rem", sm: "3rem", md: "3rem" },
+                    letterSpacing: "0px",
+                    fontWeight: 300,
+                    lineHeight: "1",
+                    textAlign: "left",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Transforma tu perspectiva
+                </Typography>
+                <Typography
+                  sx={{
                     fontSize: {
                       xs: "0.8rem",
-                      md: "1.2rem",
+                      sm: "1.5rem",
+                      md: "1.5rem",
                     },
                     fontWeight: 200,
-                    textAlign: {
-                      xs: "center",
-                      md: "left",
-                    },
+                    lineHeight: "1",
+                    textAlign: "left",
                     mt: 3,
                   }}
                 >
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Repellat illo nam aperiam quidem amet earum reiciendis? Soluta
-                  magnam corrupti quae at. Laboriosam minima natus eligendi
-                  architecto dolorem tempore facilis officiis.
+                  Repellat illo nam aperiam quidem amet earum reiciendis
                 </Typography>
               </Box>
             </Box>
