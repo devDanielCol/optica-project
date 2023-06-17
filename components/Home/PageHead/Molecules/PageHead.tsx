@@ -85,7 +85,7 @@ const PageHead = () => {
   };
 
   return (
-    <Box sx={{ color: "white" }}>
+    <Box sx={{ color: "white", maxWidth: 2000, mx: "auto" }}>
       <Swiper
         pagination={{
           type: "bullets",
