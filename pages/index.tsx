@@ -1,4 +1,5 @@
-import Beneficies from "../components/Home/Beneficies/Molecules/Beneficies";
+import About from "../components/Home/About/Molecules/About";
+import Beneficies from "../components/Home/Beneficies/Beneficies";
 import PageHead from "../components/Home/PageHead/Molecules/PageHead";
 import WorkDesc from "../components/Home/WorkDescription/Molecules/WorkDesc";
 import Content from "../components/Layout/Content/General";
@@ -17,6 +18,7 @@ export default function Home() {
       <>
         <PageHead />
         <WorkDesc />
+        <About />
         <Beneficies />
         <ParticleBasic />
       </>

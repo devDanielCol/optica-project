@@ -39,6 +39,7 @@ const darkThemeOption = {
       footer: "rgb(15, 46, 87)",
       footerText: "#fff",
       menuText: "#5f83bd",
+      variant: "rgb(15, 46, 87)",
     },
   },
 

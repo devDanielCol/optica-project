@@ -40,6 +40,7 @@ const lightThemeOption = {
       footer: "#043e52",
       footerText: "#fff",
       menuText: "#016a6de5",
+      variant: "#fff",
     },
   },
   typography: {
