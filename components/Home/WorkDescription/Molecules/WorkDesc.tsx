@@ -1,25 +1,13 @@
-import { Box, Container, IconButton, Typography, styled } from "@mui/material";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { Box, Container, Typography } from "@mui/material";
 import GradientText from "../../../GradientText/GradientText";
 import gradients from "../../../../styles/colors/gradients";
-
-const Button = styled("button")({
-  backgroundColor: "orange",
-  color: "white",
-  paddingTop: "0.7rem",
-  paddingBottom: "0.7rem",
-  paddingLeft: "1.7rem",
-  paddingRight: "1.7rem",
-  outline: "none",
-  border: "none",
-  borderRadius: "24px",
-  fontSize: "1.2rem",
-  fontWeight: 600,
-});
+import useTheme from "../../../../util/hooks/useTheme";
 
 const WorkDesc = () => {
+  const theme = useTheme();
+
   return (
-    <Box sx={{}}>
+    <Box>
       <Container
         maxWidth="lg"
         sx={{
@@ -38,7 +26,10 @@ const WorkDesc = () => {
             sx={{
               width: "3px",
               height: "1.7rem",
-              backgroundImage: gradients.blueDarkBlue,
+              backgroundImage:
+                theme.palette.mode === "light"
+                  ? "linear-gradient(to right, #19787a, #00dfd8)"
+                  : gradients.blueDarkBlue,
             }}
           ></Typography>
           <Typography sx={{ fontWeight: 700, pl: 1 }}>Fleuri + Co.</Typography>
@@ -79,38 +70,17 @@ const WorkDesc = () => {
 
           <Typography
             sx={{
-              fontWeight: 700,
+              fontWeight: 300,
               pl: 1,
               mt: 3,
-              fontSize: { xs: "1.2rem", md: "1.5rem" },
+              fontSize: { xs: "0.7rem", md: "1rem" },
               textAlign: "center",
+              textTransform: "uppercase",
+              letterSpacing: 2,
             }}
           >
             Sustainable Progress Goals Report
           </Typography>
-        </Box>
-        <Box
-          sx={{
-            mt: 3,
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <IconButton
-            LinkComponent={"a"}
-            href="#beneficios"
-            sx={{
-              backgroundImage: gradients.blueDarkBlue,
-              color: "white",
-              "&:hover": {
-                backgroundImage: gradients.blueDarkBlue,
-              },
-            }}
-          >
-            <ArrowDownwardIcon />
-          </IconButton>
         </Box>
       </Container>
     </Box>
