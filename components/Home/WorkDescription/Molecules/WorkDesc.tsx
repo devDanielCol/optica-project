@@ -11,13 +11,13 @@ const WorkDesc = () => {
       <Container
         maxWidth="lg"
         sx={{
-          px: 7,
+          px: 0,
           pt: 7,
+          pb: 0,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           mb: 0,
-          pb: 0,
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", mb: 5 }}>
@@ -32,7 +32,7 @@ const WorkDesc = () => {
                   : gradients.blueDarkBlue,
             }}
           ></Typography>
-          <Typography sx={{ fontWeight: 700, pl: 1 }}>Fleuri + Co.</Typography>
+          <Typography sx={{ fontWeight: 700, pl: 1 }}>Coper + Co.</Typography>
         </Box>
         <Box
           sx={{
@@ -45,27 +45,26 @@ const WorkDesc = () => {
           <GradientText
             gradient={gradients.blueDarkBlue}
             sx={{
-              fontWeight: 600,
-              pl: 1,
-              fontSize: { xs: "3rem", md: "4rem" },
+              fontWeight: 800,
               lineHeight: 1,
-              letterSpacing: "2px",
+              opacity: 0.9,
+              textAlign: "center",
             }}
             fontSize={{ xs: "3rem", md: "4rem" }}
           >
-            Sustainability
+            Salud Visual
           </GradientText>
           <GradientText
             gradient={gradients.blueDarkBlue}
             sx={{
               fontWeight: 600,
               pl: 1,
-              lineHeight: 1,
+              lineHeight: 1.15,
               letterSpacing: "2px",
             }}
             fontSize={{ xs: "3rem", md: "4rem" }}
           >
-            Plans
+            Brigadas
           </GradientText>
 
           <Typography
@@ -73,13 +72,13 @@ const WorkDesc = () => {
               fontWeight: 300,
               pl: 1,
               mt: 3,
-              fontSize: { xs: "0.7rem", md: "1rem" },
+              fontSize: { xs: "0.65rem", md: "1rem" },
               textAlign: "center",
               textTransform: "uppercase",
               letterSpacing: 2,
             }}
           >
-            Sustainable Progress Goals Report
+            Especialistas en brigadas empresariales
           </Typography>
         </Box>
       </Container>

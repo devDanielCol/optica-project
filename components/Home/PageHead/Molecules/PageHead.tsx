@@ -63,13 +63,12 @@ const ButtonChange: FC<ButtonChangeProps> = ({
 const PageHead = () => {
   const [active, setActive] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [isLoad, setIsLoad] = useState<boolean>();
 
   const videoRef = useRef<HTMLVideoElement>();
 
   const pauseAndPlay = () => {
     if (videoRef.current?.paused) {
-      console.log("played");
-      setIsPaused(!isPaused);
       videoRef.current
         .play()
         .then(() => {
@@ -79,7 +78,6 @@ const PageHead = () => {
           console.error(err);
         });
     } else {
-      setIsPaused(!isPaused);
       videoRef.current?.pause();
     }
   };
@@ -179,17 +177,22 @@ const PageHead = () => {
             <Box
               ref={videoRef}
               sx={{
-                height: "98vh",
+                height: "87vh",
+                backgroundColor: "black",
+                maxHeight: 1500,
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
                 zIndex: -1,
+                display: isLoad ? "none" : "block",
               }}
               autoPlay
               preload=""
               muted
               poster="images/brigadas.jpg"
               loop
+              onPause={() => setIsPaused(true)}
+              onPlay={() => setIsPaused(false)}
               playsInline
               component={"video"}
             >
@@ -205,7 +208,8 @@ const PageHead = () => {
                 top: 0,
                 justifyContent: "flex-start",
                 alignItems: "flex-end",
-                height: "90vh",
+                height: "87vh",
+                maxHeight: 1500,
                 // bgcolor: "blue",
               }}
             >
@@ -300,7 +304,8 @@ const PageHead = () => {
           >
             <Box
               sx={{
-                height: "98vh",
+                height: "87vh",
+                maxHeight: 1500,
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
@@ -318,7 +323,8 @@ const PageHead = () => {
                 top: 0,
                 justifyContent: "flex-start",
                 alignItems: "flex-end",
-                height: "90vh",
+                height: "87vh",
+                maxHeight: 1500,
                 // bgcolor: "blue",
               }}
             >
@@ -394,7 +400,8 @@ const PageHead = () => {
           >
             <Box
               sx={{
-                height: "98vh",
+                height: "87vh",
+                maxHeight: 1500,
                 width: "100%",
                 objectPosition: "top",
                 objectFit: "cover",
@@ -412,7 +419,8 @@ const PageHead = () => {
                 top: 0,
                 justifyContent: "flex-start",
                 alignItems: "flex-end",
-                height: "90vh",
+                height: "87vh",
+                maxHeight: 1500,
                 // bgcolor: "blue",
               }}
             >

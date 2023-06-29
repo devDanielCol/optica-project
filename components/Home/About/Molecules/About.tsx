@@ -8,7 +8,7 @@ const About = () => {
   const theme = useTheme();
 
   return (
-    <Box id="beneficios">
+    <Box>
       <Container maxWidth="lg" sx={{ minHeight: "300px" }}>
         <Box
           sx={{
@@ -87,7 +87,7 @@ const About = () => {
             }}
             fontSize={{ xs: "3rem", md: "4rem" }}
           >
-            Build when inspiration strikes
+            Empieza con nostros facilmente
           </GradientText>
           <Typography
             sx={{
@@ -98,11 +98,11 @@ const About = () => {
               opacity: 0.9,
               textAlign: "center",
               fontSize: { xs: "0.9rem", md: "1.2rem", lg: "1.5rem" },
-              maxWidth: { xs: "100%", md: "80%", lg: "70%" },
+              maxWidth: { xs: "85%", md: "80%", lg: "70%" },
             }}
           >
-            Make frontend development a collaborative experience with automatic
-            Preview Deployments for every code change, by seamlessly integrating
+            Empezar es facil contáctanos y uno de nuestros asesores te ayudará
+            en todo el proceso. Tenemos a tu disposición multiples beneficios.
           </Typography>
         </Box>
       </Container>

@@ -4,6 +4,7 @@ import PageHead from "../components/Home/PageHead/Molecules/PageHead";
 import WorkDesc from "../components/Home/WorkDescription/Molecules/WorkDesc";
 import Content from "../components/Layout/Content/General";
 import ParticleBasic from "../components/Particles/ParticleBasic";
+import Subscribe from "../components/Subscribe/Molecules/Subscribe";
 
 export default function Home() {
   const description =
@@ -20,6 +21,7 @@ export default function Home() {
         <WorkDesc />
         <About />
         <Beneficies />
+        <Subscribe />
         <ParticleBasic />
       </>
     </Content>
