@@ -26,8 +26,9 @@ const MenuHmw = ({ open, onCloseFc }: IMenuHmwProps) => {
           width: {
             xs: "100vw",
             sm: "60vw",
-            md: "45vw",
+            md: "30vw",
           },
+          maxWidth: "450px",
           height: "100%",
           p: 4,
           pt: 10,

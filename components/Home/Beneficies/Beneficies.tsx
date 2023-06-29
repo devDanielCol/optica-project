@@ -1,22 +1,18 @@
-import {
-  Container,
-  Box,
-  Grid,
-  Button,
-  IconButton,
-  Typography,
-} from "@mui/material";
-import useTheme from "../../../util/hooks/useTheme";
+import { Container, Box, Grid, IconButton, Typography } from "@mui/material";
+
 import gradients from "../../../styles/colors/gradients";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import GradientText from "../../GradientText/GradientText";
 import PanoramaFishEyeIcon from "@mui/icons-material/PanoramaFishEye";
+import doctorSvg from "../../../public/images/doctors.svg";
+
+import DoneIcon from "@mui/icons-material/Done";
+
+import Image from "next/image";
+import BeneficiesTable from "./Atoms/TableBeneficies/BeneficiesTable";
 
 const Beneficies = () => {
-  const theme = useTheme();
-
   return (
-    <Box sx={{ mt: 10, py: 5 }}>
+    <Box sx={{ mt: { xs: 0, md: 10 }, py: 5 }}>
       <Container maxWidth="lg">
         <Grid container>
           <Grid
@@ -27,35 +23,21 @@ const Beneficies = () => {
               p: { xs: 0, lg: 2 },
               minHeight: { xs: "400px", md: "500px" },
               display: "flex",
-              justifyContent: { xs: "center", md: "inherit" },
+              flexDirection: "column",
+              justifyContent: { xs: "center", md: "center" },
+              alignItems: { xs: "center", md: "inherit" },
               borderRight: { xs: "none", md: "1px dashed" },
               borderRightColor: "primary",
             }}
           >
-            <Box sx={{ position: "relative" }}>
-              <Box
-                sx={{
-                  boxShadow: 5,
-                  height: { xs: "200px", md: "280px" },
-                  width: { xs: "290px", md: "450px" },
-                  backgroundColor: theme.palette.custom.variant,
-                  "box-shadow": "-13px 1px 40px -11px rgba(0,0,0,0.49)",
-                  borderRadius: "12px",
-                }}
-              ></Box>
-              <Box
-                sx={{
-                  top: 150,
-                  left: 50,
-                  position: "absolute",
-                  height: { xs: "200px", md: "280px" },
-                  width: { xs: "290px", md: "450px" },
-                  backgroundColor: theme.palette.custom.variant,
-                  borderRadius: "12px",
-                  "box-shadow": "-13px 1px 40px -11px rgba(0,0,0,0.49)",
-                }}
-              ></Box>
-            </Box>
+            {/* <Image src={loveSvg as string} alt="" width={300} height={300} /> */}
+            <Image
+              src={doctorSvg as string}
+              alt=""
+              width={300}
+              height={300}
+              style={{ width: "100%" }}
+            />
           </Grid>
           <Grid
             item
@@ -85,14 +67,14 @@ const Beneficies = () => {
                   }}
                   fontSize={{ xs: "1rem", md: "1.5rem" }}
                 >
-                  Automatic Previews for every branch
+                  Precios muy bajos - Descuentos
                 </Typography>
                 <Typography
                   sx={{ mt: 2 }}
                   fontSize={{ xs: "1rem", md: "1rem" }}
                 >
-                  Each new branch receives a live, production-like URL that
-                  everyone on your team can visit.
+                  Precios por debajo de su valor comercial de un 30 a un 35% de
+                  descuento
                 </Typography>
               </Box>
             ))}
@@ -130,46 +112,11 @@ const Beneficies = () => {
         </Box>
         <Box
           sx={{
-            my: 3,
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <IconButton
-            LinkComponent={"a"}
-            href="#beneficios"
-            sx={{
-              backgroundImage: gradients.blueDarkBlue,
-              color: "white",
-              "&:hover": {
-                backgroundImage: gradients.blueDarkBlue,
-              },
-            }}
-          >
-            <ArrowDownwardIcon />
-          </IconButton>
-          <GradientText
-            gradient={gradients.blueDarkBlue}
-            sx={{
-              fontWeight: 800,
-              lineHeight: 1,
-              opacity: 0.9,
-              textAlign: "center",
-              mt: 2,
-            }}
-            fontSize={{ xs: "2rem", md: "2rem" }}
-          >
-            Develop
-          </GradientText>
-        </Box>
-        <Box
-          sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            mt: 3,
             mb: 2,
           }}
         >
@@ -182,7 +129,7 @@ const Beneficies = () => {
             }}
             fontSize={{ xs: "3rem", md: "4rem" }}
           >
-            Exámenes y estudios
+            Multiples Beneficios
           </Typography>
           <Typography
             sx={{
@@ -196,8 +143,8 @@ const Beneficies = () => {
               maxWidth: { xs: "100%", md: "80%", lg: "70%" },
             }}
           >
-            Make frontend development a collaborative experience with automatic
-            Preview Deployments for every code change, by seamlessly integrating
+            Tiempos de entrega de tan solo 8 días, facil acceso con descuentos
+            de nómina, las campañas no representan ningun costo para tu empresa.
           </Typography>
         </Box>
         <Box
@@ -237,6 +184,7 @@ const Beneficies = () => {
           }}
         >
           <Box
+            id="beneficios"
             sx={{
               width: "1px",
               height: "100px",
@@ -245,66 +193,43 @@ const Beneficies = () => {
             component="span"
           ></Box>
         </Box>
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <Box
+        <Box
+          sx={{
+            my: 3,
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <IconButton
+            LinkComponent={"a"}
+            href="#beneficios"
             sx={{
-              height: "1px",
-              width: { xs: "100%", md: "70%", lg: "60%" },
-              backgroundColor: "#a8a8a8",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              backgroundImage: gradients.blueDarkBlue,
+              color: "white",
+              "&:hover": {
+                backgroundImage: gradients.blueDarkBlue,
+              },
             }}
-            component="span"
           >
-            <Button
-              LinkComponent={"a"}
-              href="#beneficios"
-              sx={{
-                backgroundColor:
-                  theme.palette.mode === "dark" ? "white" : "black",
-                color: theme.palette.mode === "dark" ? "black" : "white",
-                fontSize: { xs: "0.7rem", md: "1rem" },
-                borderRadius: "24px",
-                py: 0.5,
-                px: 2,
-              }}
-            >
-              Progreso
-            </Button>
-            <Button
-              LinkComponent={"a"}
-              href="#beneficios"
-              sx={{
-                backgroundColor:
-                  theme.palette.mode === "dark" ? "white" : "black",
-                color: theme.palette.mode === "dark" ? "black" : "white",
-                fontSize: { xs: "0.7rem", md: "1rem" },
-                borderRadius: "24px",
-                py: 0.5,
-                px: 2,
-              }}
-            >
-              Avance
-            </Button>
-            <Button
-              LinkComponent={"a"}
-              href="#beneficios"
-              sx={{
-                transition: "all .2s linear",
-                backgroundColor:
-                  theme.palette.mode === "dark" ? "white" : "black",
-                color: theme.palette.mode === "dark" ? "black" : "white",
-                fontSize: { xs: "0.7rem", md: "1rem" },
-                borderRadius: "24px",
-                py: 0.5,
-                px: 2,
-              }}
-            >
-              Servico
-            </Button>
-          </Box>
+            <DoneIcon />
+          </IconButton>
+          <GradientText
+            gradient={gradients.blueDarkBlue}
+            sx={{
+              fontWeight: 800,
+              lineHeight: 1,
+              opacity: 0.9,
+              textAlign: "center",
+              mt: 2,
+            }}
+            fontSize={{ xs: "2rem", md: "2rem" }}
+          >
+            Beneficios
+          </GradientText>
         </Box>
+        <BeneficiesTable />
       </Container>
     </Box>
   );
