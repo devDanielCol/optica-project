@@ -87,7 +87,7 @@ const About = () => {
             }}
             fontSize={{ xs: "3rem", md: "4rem" }}
           >
-            Empieza con nostros facilmente
+            Empieza con nostros así de facil
           </GradientText>
           <Typography
             sx={{
@@ -101,8 +101,8 @@ const About = () => {
               maxWidth: { xs: "85%", md: "80%", lg: "70%" },
             }}
           >
-            Empezar es facil contáctanos y uno de nuestros asesores te ayudará
-            en todo el proceso. Tenemos a tu disposición multiples beneficios.
+            Para solicitar una brigada solamente necesitas comunicarte con
+            nostros y te agendaremos una visita conforme a tu solicitud
           </Typography>
         </Box>
       </Container>

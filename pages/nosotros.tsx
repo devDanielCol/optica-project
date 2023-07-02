@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <Content
-      title="Sobre nostros | Peniel construcciones"
+      title="Sobre nosotros visual health | Informacion sobre visual healt optica"
       description={description}
     >
       <Presentation />
