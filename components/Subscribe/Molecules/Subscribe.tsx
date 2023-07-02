@@ -7,12 +7,9 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import useTheme from "../../../util/hooks/useTheme";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const Subscribe = () => {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
@@ -82,7 +79,7 @@ const Subscribe = () => {
                 color: "#e16a3d",
               }}
             >
-              Inscribirse
+              Agendar Cita
             </Box>
           </Grid>
           <Grid

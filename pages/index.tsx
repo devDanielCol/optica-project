@@ -1,6 +1,9 @@
+import ProductsCarrousell from "../components/Global/ProductsCarrousell/Molecules/ProductsCarrousell";
 import About from "../components/Home/About/Molecules/About";
+import BannerDescription from "../components/Home/BannerDescription/BannerDescription";
 import Beneficies from "../components/Home/Beneficies/Beneficies";
 import PageHead from "../components/Home/PageHead/Molecules/PageHead";
+import WhatIs from "../components/Home/WhatIs/WahtIs";
 import WorkDesc from "../components/Home/WorkDescription/Molecules/WorkDesc";
 import Content from "../components/Layout/Content/General";
 import ParticleBasic from "../components/Particles/ParticleBasic";
@@ -22,7 +25,10 @@ export default function Home() {
         <About />
         <Beneficies />
         <Subscribe />
-        <ParticleBasic />
+        <WhatIs />
+        <BannerDescription />
+        <ProductsCarrousell />
+        {/* <ParticleBasic /> */}
       </>
     </Content>
   );

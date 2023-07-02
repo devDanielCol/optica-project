@@ -32,7 +32,7 @@ const WorkDesc = () => {
                   : gradients.blueDarkBlue,
             }}
           ></Typography>
-          <Typography sx={{ fontWeight: 700, pl: 1 }}>Coper + Co.</Typography>
+          <Typography sx={{ fontWeight: 700, pl: 1 }}>CEDIEMVI + VS</Typography>
         </Box>
         <Box
           sx={{
@@ -46,25 +46,23 @@ const WorkDesc = () => {
             gradient={gradients.blueDarkBlue}
             sx={{
               fontWeight: 800,
-              lineHeight: 1,
-              opacity: 0.9,
+              lineHeight: 1.15,
+              textAlign: "center",
+            }}
+            fontSize={{ xs: "3rem", md: "4rem" }}
+          >
+            Brigadas de
+          </GradientText>
+          <GradientText
+            gradient={gradients.blueDarkBlue}
+            sx={{
+              fontWeight: 800,
+              lineHeight: 1.15,
               textAlign: "center",
             }}
             fontSize={{ xs: "3rem", md: "4rem" }}
           >
             Salud Visual
-          </GradientText>
-          <GradientText
-            gradient={gradients.blueDarkBlue}
-            sx={{
-              fontWeight: 600,
-              pl: 1,
-              lineHeight: 1.15,
-              letterSpacing: "2px",
-            }}
-            fontSize={{ xs: "3rem", md: "4rem" }}
-          >
-            Brigadas
           </GradientText>
 
           <Typography
@@ -72,13 +70,13 @@ const WorkDesc = () => {
               fontWeight: 300,
               pl: 1,
               mt: 3,
-              fontSize: { xs: "0.65rem", md: "1rem" },
+              fontSize: { xs: "0.6rem", md: "1rem" },
               textAlign: "center",
               textTransform: "uppercase",
               letterSpacing: 2,
             }}
           >
-            Especialistas en brigadas empresariales
+            Somos Especialistas en brigadas empresariales
           </Typography>
         </Box>
       </Container>

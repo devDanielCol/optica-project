@@ -323,7 +323,7 @@ const BeneficiesTable = () => {
           <Box
             sx={{
               width: "100%",
-              height: seeMore ? "550px" : "95px",
+              height: seeMore ? "500px" : "95px",
               overflow: "hidden",
               position: "relative",
               transition: "all .2s",
